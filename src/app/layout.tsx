@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
+import "devices.css/dist/devices.min.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,7 +8,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
+const playfairDisplay = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -15,9 +16,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Nelo — The contact that cares for your elders",
+  title: "Nelo, the contact that cares for your elders",
   description:
-    "The AI contact that cares for your elders — and keeps you informed. A daily call or text, as natural as talking to a person.",
+    "The AI contact that cares for your elders, and keeps you informed. A call or text, as natural as talking to a person.",
 };
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${playfairDisplay.variable}`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
         {children}
       </body>
