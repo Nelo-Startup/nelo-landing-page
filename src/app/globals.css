@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #2b2724;
-  --surface: #f1ece2;
-  --accent: #4a6fa5;
-  --accent-foreground: #faf7f2;
+  --background: #fdf8f0;
+  --foreground: #3a3128;
+  --surface: #faf0e2;
+  --accent: #e2764f;
+  --accent-foreground: #fdf8f0;
   --ios-blue: #0b84fe;
   --ios-gray: #e9e9eb;
   --ios-gray-foreground: #1c1c1e;

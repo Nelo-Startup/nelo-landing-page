@@ -44,16 +44,22 @@ function formatSeconds(s: number) {
 
 function StatusBar() {
   return (
-    <div className="flex items-center justify-between px-6 pt-4 text-foreground text-[15px] font-semibold tracking-tight">
-      <span>9:41</span>
-      <div className="flex items-center gap-1.5">
-        <div className="flex items-end gap-[2px] h-[11px]">
-          <span className="w-[6px] h-[4px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[6px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[9px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[11px] bg-foreground rounded-[1px]" />
+    <div className="flex items-center pt-[13.75px] text-foreground text-[17px] font-semibold tracking-tight">
+      {/* The island is fixed at 120px centred on the 390px screen, so each side
+          gets its own equal region and centres its contents inside it — that's
+          how iOS lays the status bar out around the cutout. */}
+      <div className="flex-1 flex justify-center">
+        <span>9:41</span>
+      </div>
+      <div className="w-[120px] shrink-0" />
+      <div className="flex-1 flex items-center justify-center gap-[6.5px]">
+        <div className="flex items-end gap-[2px] h-[12px]">
+          <span className="w-[4px] h-[6px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[8px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[10px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[12px] bg-foreground rounded-[1px]" />
         </div>
-        <svg width="16" height="12" viewBox="0 0 15 11" fill="none">
+        <svg width="19" height="13.9" viewBox="0 0 15 11" fill="none">
           <path
             d="M3.8 6.3C5.8 4.3 9.2 4.3 11.2 6.3"
             stroke="currentColor"
@@ -76,9 +82,9 @@ function StatusBar() {
             className="text-foreground"
           />
         </svg>
-        <div className="w-[25px] h-[12px] rounded-[4px] border border-foreground/80 relative flex items-center px-[1.5px]">
-          <span className="block w-full h-[7px] bg-foreground rounded-[1px]" />
-          <span className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-foreground/80 rounded-r-[1px]" />
+        <div className="w-[30px] h-[14.5px] rounded-[4.5px] border border-foreground/80 relative flex items-center px-[1.5px]">
+          <span className="block w-full h-[9px] bg-foreground rounded-[1px]" />
+          <span className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[5px] bg-foreground/80 rounded-r-[1px]" />
         </div>
       </div>
     </div>
