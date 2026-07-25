@@ -28,7 +28,7 @@ export default function ContactForm() {
   if (status === "done") {
     return (
       <div className="rounded-[24px] border border-foreground/10 bg-white p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
-        <p className="font-serif text-2xl text-foreground">Message sent.</p>
+        <p className="font-display text-2xl text-foreground">Message sent.</p>
         <p className="mt-3 text-foreground/70 leading-relaxed">
           We&apos;ll get back to you within one business day.
         </p>

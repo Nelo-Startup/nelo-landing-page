@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import Logo from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Contact, Nelo",
@@ -9,18 +10,15 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
-      <Link
-        href="/"
-        className="font-serif text-lg font-semibold text-foreground"
-      >
-        Nelo
+      <Link href="/" className="inline-block">
+        <Logo height={26} />
       </Link>
 
-      <h1 className="mt-10 font-serif text-3xl text-foreground">Contact us</h1>
+      <h1 className="mt-10 font-display text-3xl text-foreground">Contact us</h1>
 
       <div className="mt-8 grid md:grid-cols-2 gap-6">
         <div className="rounded-[24px] bg-surface p-8">
-          <p className="font-serif text-xl text-foreground">
+          <p className="font-display text-xl text-foreground">
             Please fill out the form.
           </p>
 

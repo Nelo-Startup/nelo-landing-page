@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #2b2724;
-  --surface: #f1ece2;
+  --background: #fdf8f0;
+  --foreground: #3a3128;
+  --surface: #faf0e2;
   --accent: #4a6fa5;
-  --accent-foreground: #faf7f2;
+  --accent-foreground: #fdf8f0;
   --ios-blue: #0b84fe;
   --ios-gray: #e9e9eb;
   --ios-gray-foreground: #1c1c1e;
@@ -20,9 +20,15 @@
   --color-ios-blue: var(--ios-blue);
   --color-ios-gray: var(--ios-gray);
   --color-ios-gray-foreground: var(--ios-gray-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-display);
+  --font-sans: var(--font-nunito);
+}
+
+/* Headings share the body family now, so they carry their own weight to stay
+   distinct from surrounding copy. */
+@utility font-display {
+  font-family: var(--font-nunito);
+  font-weight: 700;
+  letter-spacing: -0.015em;
 }
 
 body {
@@ -35,6 +41,12 @@ body {
    override so our layout classes still work in there. */
 .device .flex {
   display: flex;
+}
+
+/* Same reason: the typing caret has to stay inline with the draft text it
+   trails, or `display: block` drops it onto a line of its own. */
+.device .inline-block {
+  display: inline-block;
 }
 
 /* devices.css also defaults .device-screen to a black background, which
@@ -51,6 +63,16 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Hard on/off, not a fade — a text caret cuts rather than pulses. */
+@keyframes caretBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 

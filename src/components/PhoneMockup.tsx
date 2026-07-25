@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LogoMark } from "./Logo";
 
 type Message =
   | { from: "nelo"; kind: "text"; text: string }
@@ -32,6 +33,7 @@ const script: Message[] = [
 ];
 
 const TYPING_DELAY = 950;
+const TYPED_HOLD = 1400;
 const NELO_PAUSE = 1100;
 const YOU_PAUSE = 1300;
 const LOOP_PAUSE = 2800;
@@ -44,16 +46,22 @@ function formatSeconds(s: number) {
 
 function StatusBar() {
   return (
-    <div className="flex items-center justify-between px-6 pt-4 text-foreground text-[15px] font-semibold tracking-tight">
-      <span>9:41</span>
-      <div className="flex items-center gap-1.5">
-        <div className="flex items-end gap-[2px] h-[11px]">
-          <span className="w-[6px] h-[4px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[6px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[9px] bg-foreground rounded-[1px]" />
-          <span className="w-[6px] h-[11px] bg-foreground rounded-[1px]" />
+    <div className="flex items-center pt-[13.75px] text-foreground text-[17px] font-semibold tracking-tight">
+      {/* The island is fixed at 120px centred on the 390px screen, so each side
+          gets its own equal region and centres its contents inside it — that's
+          how iOS lays the status bar out around the cutout. */}
+      <div className="flex-1 flex justify-center">
+        <span>9:41</span>
+      </div>
+      <div className="w-[120px] shrink-0" />
+      <div className="flex-1 flex items-center justify-center gap-[6.5px]">
+        <div className="flex items-end gap-[2px] h-[12px]">
+          <span className="w-[4px] h-[6px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[8px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[10px] bg-foreground rounded-[1px]" />
+          <span className="w-[4px] h-[12px] bg-foreground rounded-[1px]" />
         </div>
-        <svg width="16" height="12" viewBox="0 0 15 11" fill="none">
+        <svg width="19" height="13.9" viewBox="0 0 15 11" fill="none">
           <path
             d="M3.8 6.3C5.8 4.3 9.2 4.3 11.2 6.3"
             stroke="currentColor"
@@ -76,9 +84,9 @@ function StatusBar() {
             className="text-foreground"
           />
         </svg>
-        <div className="w-[25px] h-[12px] rounded-[4px] border border-foreground/80 relative flex items-center px-[1.5px]">
-          <span className="block w-full h-[7px] bg-foreground rounded-[1px]" />
-          <span className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-foreground/80 rounded-r-[1px]" />
+        <div className="w-[30px] h-[14.5px] rounded-[4.5px] border border-foreground/80 relative flex items-center px-[1.5px]">
+          <span className="block w-full h-[9px] bg-foreground rounded-[1px]" />
+          <span className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[5px] bg-foreground/80 rounded-r-[1px]" />
         </div>
       </div>
     </div>
@@ -87,8 +95,11 @@ function StatusBar() {
 
 function ContactHeader() {
   return (
-    <div className="mt-7 pb-3.5 text-center border-b border-foreground/10">
-      <p className="text-[16px] font-semibold text-foreground">Nelo</p>
+    <div className="mt-4 pb-2.5 flex flex-col items-center gap-1 border-b border-foreground/10">
+      <span className="w-[40px] h-[40px] rounded-full bg-surface flex items-center justify-center">
+        <LogoMark height={22} />
+      </span>
+      <p className="text-[12px] text-foreground/75">Nelo</p>
     </div>
   );
 }
@@ -179,7 +190,9 @@ function useLiveConversation() {
       if (cancelled) return;
       setDraft(text.slice(0, index));
       if (index >= text.length) {
-        wait(onDone, 450);
+        // Long enough to read as a beat before sending, and to let the caret
+        // complete a blink now that it holds solid while keys are landing.
+        wait(onDone, TYPED_HOLD);
         return;
       }
       wait(() => typeIntoInput(text, index + 1, onDone), 28 + Math.random() * 40);
@@ -299,7 +312,7 @@ export default function PhoneMockup() {
                 <div className="w-7 h-7 rounded-full border-2 border-foreground/25 flex items-center justify-center text-foreground/40 text-lg leading-none shrink-0">
                   +
                 </div>
-                <div className="flex-1 rounded-full border border-foreground/20 px-4 py-2 text-[14px] min-h-[34px] flex items-center gap-1.5 overflow-hidden">
+                <div className="flex-1 rounded-[17px] border border-foreground/20 px-4 py-2 text-[14px] min-h-[34px] flex items-center gap-1.5">
                   {recording ? (
                     <>
                       <div className="flex items-center gap-[2px] flex-1">
@@ -316,12 +329,16 @@ export default function PhoneMockup() {
                       </span>
                     </>
                   ) : draft ? (
-                    <>
-                      <span className="text-foreground whitespace-nowrap">
-                        {draft}
-                      </span>
-                      <span className="w-[1.5px] h-[15px] bg-foreground/70 animate-pulse shrink-0" />
-                    </>
+                    <p className="text-foreground leading-snug break-words">
+                      {draft}
+                      {/* Keyed on length so each keystroke remounts it and restarts
+                          the blink: solid while characters are landing, blinking
+                          only once typing pauses, like a real caret. */}
+                      <span
+                        key={draft.length}
+                        className="inline-block w-[2px] h-[15px] bg-foreground/80 align-middle ml-[1.5px] animate-[caretBlink_1.06s_step-end_infinite]"
+                      />
+                    </p>
                   ) : (
                     <span className="text-foreground/35">Text Message</span>
                   )}
