@@ -75,7 +75,7 @@ export default function WaitlistModal() {
 
             {status === "done" ? (
               <div className="text-center py-4">
-                <p className="font-serif text-2xl text-foreground">
+                <p className="font-display text-2xl text-foreground">
                   You&apos;re on the list.
                 </p>
                 <p className="mt-3 text-foreground/70 leading-relaxed">
@@ -84,7 +84,7 @@ export default function WaitlistModal() {
               </div>
             ) : (
               <>
-                <h2 className="font-serif text-2xl text-foreground">
+                <h2 className="font-display text-2xl text-foreground">
                   Join the Waitlist
                 </h2>
                 <p className="mt-2 text-sm text-foreground/60">

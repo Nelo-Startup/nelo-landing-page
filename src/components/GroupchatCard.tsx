@@ -1,3 +1,5 @@
+import { LogoMark } from "./Logo";
+
 type Message = {
   from: "sister" | "nelo" | "you";
   label?: string;
@@ -47,10 +49,8 @@ export default function GroupchatCard() {
         <div className="flex -space-x-2">
           <div className="w-7 h-7 rounded-full bg-[#d8c9a3] border-2 border-white" />
           <div className="w-7 h-7 rounded-full bg-[#a3b8d8] border-2 border-white" />
-          <div className="w-7 h-7 rounded-full bg-accent border-2 border-white flex items-center justify-center">
-            <span className="text-white text-[10px] font-serif font-semibold">
-              N
-            </span>
+          <div className="w-7 h-7 rounded-full bg-surface border-2 border-white flex items-center justify-center">
+            <LogoMark height={11} />
           </div>
         </div>
         <div>

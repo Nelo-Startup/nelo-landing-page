@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LogoMark } from "./Logo";
 
 type Message =
   | { from: "nelo"; kind: "text"; text: string }
@@ -32,6 +33,7 @@ const script: Message[] = [
 ];
 
 const TYPING_DELAY = 950;
+const TYPED_HOLD = 1400;
 const NELO_PAUSE = 1100;
 const YOU_PAUSE = 1300;
 const LOOP_PAUSE = 2800;
@@ -93,8 +95,11 @@ function StatusBar() {
 
 function ContactHeader() {
   return (
-    <div className="mt-7 pb-3.5 text-center border-b border-foreground/10">
-      <p className="text-[16px] font-semibold text-foreground">Nelo</p>
+    <div className="mt-4 pb-2.5 flex flex-col items-center gap-1 border-b border-foreground/10">
+      <span className="w-[40px] h-[40px] rounded-full bg-surface flex items-center justify-center">
+        <LogoMark height={22} />
+      </span>
+      <p className="text-[12px] text-foreground/75">Nelo</p>
     </div>
   );
 }
@@ -185,7 +190,9 @@ function useLiveConversation() {
       if (cancelled) return;
       setDraft(text.slice(0, index));
       if (index >= text.length) {
-        wait(onDone, 450);
+        // Long enough to read as a beat before sending, and to let the caret
+        // complete a blink now that it holds solid while keys are landing.
+        wait(onDone, TYPED_HOLD);
         return;
       }
       wait(() => typeIntoInput(text, index + 1, onDone), 28 + Math.random() * 40);
@@ -305,7 +312,7 @@ export default function PhoneMockup() {
                 <div className="w-7 h-7 rounded-full border-2 border-foreground/25 flex items-center justify-center text-foreground/40 text-lg leading-none shrink-0">
                   +
                 </div>
-                <div className="flex-1 rounded-full border border-foreground/20 px-4 py-2 text-[14px] min-h-[34px] flex items-center gap-1.5 overflow-hidden">
+                <div className="flex-1 rounded-[17px] border border-foreground/20 px-4 py-2 text-[14px] min-h-[34px] flex items-center gap-1.5">
                   {recording ? (
                     <>
                       <div className="flex items-center gap-[2px] flex-1">
@@ -322,12 +329,16 @@ export default function PhoneMockup() {
                       </span>
                     </>
                   ) : draft ? (
-                    <>
-                      <span className="text-foreground whitespace-nowrap">
-                        {draft}
-                      </span>
-                      <span className="w-[1.5px] h-[15px] bg-foreground/70 animate-pulse shrink-0" />
-                    </>
+                    <p className="text-foreground leading-snug break-words">
+                      {draft}
+                      {/* Keyed on length so each keystroke remounts it and restarts
+                          the blink: solid while characters are landing, blinking
+                          only once typing pauses, like a real caret. */}
+                      <span
+                        key={draft.length}
+                        className="inline-block w-[2px] h-[15px] bg-foreground/80 align-middle ml-[1.5px] animate-[caretBlink_1.06s_step-end_infinite]"
+                      />
+                    </p>
                   ) : (
                     <span className="text-foreground/35">Text Message</span>
                   )}

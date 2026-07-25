@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "devices.css/dist/devices.min.css";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Nunito is the logo's typeface, so the whole page shares its rounded,
+// friendly shapes. Variable font, so every weight is one download.
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={nunito.variable}>
       <body className="min-h-full flex flex-col font-sans antialiased">
         {children}
       </body>

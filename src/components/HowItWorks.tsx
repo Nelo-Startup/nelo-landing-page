@@ -63,7 +63,7 @@ export default function HowItWorks() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
       <div className="rounded-[32px] bg-surface px-6 py-10 sm:px-10 sm:py-12">
-        <h2 className="font-serif text-2xl sm:text-3xl text-foreground text-center mb-10">
+        <h2 className="font-display text-2xl sm:text-3xl text-foreground text-center mb-10">
           How Nelo works
         </h2>
         <div className="grid sm:grid-cols-3 gap-8 sm:gap-10">
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                   {card.icon}
                 </svg>
               </div>
-              <h3 className="mt-3 font-serif text-lg text-foreground">
+              <h3 className="mt-3 font-display text-lg text-foreground">
                 {card.title}
               </h3>
               <p className="mt-1.5 text-sm text-foreground/70 leading-snug">
@@ -88,7 +88,7 @@ export default function HowItWorks() {
       <div className="mt-8 rounded-[32px] bg-surface px-6 py-10 sm:px-10 sm:py-12">
         <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-10 items-center">
           <div>
-            <h3 className="font-serif text-xl text-foreground mb-4">
+            <h3 className="font-display text-xl text-foreground mb-4">
               For them
             </h3>
             <ul className="flex flex-col gap-3">
@@ -107,7 +107,7 @@ export default function HowItWorks() {
           <GroupchatCard />
 
           <div>
-            <h3 className="font-serif text-xl text-foreground mb-4">
+            <h3 className="font-display text-xl text-foreground mb-4">
               For you
             </h3>
             <ul className="flex flex-col gap-3">
@@ -126,7 +126,7 @@ export default function HowItWorks() {
       </div>
 
       <div className="mt-10 max-w-2xl mx-auto text-center">
-        <p className="font-serif text-xl sm:text-2xl text-foreground">
+        <p className="font-display text-xl sm:text-2xl text-foreground">
           The longer it runs, the more it knows.
         </p>
         <p className="mt-3 text-foreground/70 text-base sm:text-lg leading-relaxed">

@@ -1,13 +1,12 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer className="bg-surface border-t border-foreground/10">
       <div className="max-w-6xl mx-auto px-6 py-14 grid sm:grid-cols-[1.5fr_1fr_1fr] gap-10">
         <div>
-          <span className="font-serif text-xl font-semibold text-foreground">
-            Nelo
-          </span>
+          <Logo height={30} />
           <p className="mt-3 text-sm text-foreground/60 leading-relaxed max-w-xs">
             For families who wish they could call more often.
           </p>

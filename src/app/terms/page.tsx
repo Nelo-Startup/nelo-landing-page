@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Logo from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Terms of Service, Nelo",
@@ -8,14 +9,11 @@ export const metadata: Metadata = {
 export default function TermsOfService() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-16">
-      <Link
-        href="/"
-        className="font-serif text-lg font-semibold text-foreground"
-      >
-        Nelo
+      <Link href="/" className="inline-block">
+        <Logo height={26} />
       </Link>
 
-      <h1 className="mt-10 font-serif text-3xl text-foreground">
+      <h1 className="mt-10 font-display text-3xl text-foreground">
         Terms of Service
       </h1>
       <p className="mt-2 text-sm text-foreground/50">
@@ -34,7 +32,7 @@ export default function TermsOfService() {
         </p>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             The service
           </h2>
           <p>
@@ -46,7 +44,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Your account
           </h2>
           <p>
@@ -59,7 +57,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Acceptable use
           </h2>
           <p>
@@ -71,7 +69,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Subscriptions and billing
           </h2>
           <p>
@@ -82,7 +80,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Your content
           </h2>
           <p>
@@ -97,7 +95,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Disclaimers
           </h2>
           <p>
@@ -110,7 +108,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Limitation of liability
           </h2>
           <p>
@@ -123,7 +121,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Termination
           </h2>
           <p>
@@ -133,7 +131,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl text-foreground mb-2">
+          <h2 className="font-display text-xl text-foreground mb-2">
             Changes and governing law
           </h2>
           <p>
