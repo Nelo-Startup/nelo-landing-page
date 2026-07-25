@@ -29,3 +29,36 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* devices.css resets every descendant to display: block, which clobbers
+   Tailwind's flex utilities inside the phone mockup. Higher-specificity
+   override so our layout classes still work in there. */
+.device .flex {
+  display: flex;
+}
+
+/* devices.css also defaults .device-screen to a black background, which
+   wins the cascade tie against Tailwind's bg-white at equal specificity. */
+.device .device-screen {
+  background-color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
