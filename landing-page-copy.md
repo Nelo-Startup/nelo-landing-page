@@ -42,7 +42,7 @@ Working doc for locking content before we move to layout/color. Sections get add
 Total: 2 images. Hero covers "For them," groupchat covers "For you" — no separate images inside the text columns, so neither side looks unfinished or lopsided.
 
 **Image 1 — Hero (attention-grab + proof, in one)**
-- Style: Maxi-style phone-in-hand shot, warm home background (not a cold city-skyline vibe — something that reads as family/domestic warmth).
+- Style: no hand/lifestyle photo (decided against — needs a sourced stock photo we don't have, adds time risk). Instead: a clean, floating device-frame mockup — accurate iPhone proportions (corner radius, Dynamic Island), slight 3D tilt/perspective for depth, soft shadow/glow underneath so it's grounded on the page, sitting on a soft gradient background (not plain white).
 - Content: phone lock screen with a notification bubble, e.g. "Nelo: Checked in with Mom — she's doing well, took her morning meds."
 - Why: does double duty — grabs attention immediately, and the notification content itself is the concrete proof of "For them," so no separate "For them" image is needed later.
 - Placement: hero section, large, centered/background, sits behind or beside the H1/H2.
@@ -52,3 +52,13 @@ Total: 2 images. Hero covers "For them," groupchat covers "For you" — no separ
 - Content: a family groupchat (something like "Mom's Care") with you, your sister, and Nelo in it — showing a moment like your sister asking Nelo something and getting a real answer, or you telling Nelo what to check on next time.
 - Why: this is the actual differentiator — no competitor shows delegation across a family group. It proves "For you" concretely the same way image 1 proves "For them."
 - Placement: standalone, full-width visual beat sitting after the "For them / For you" text columns — not squeezed into the columns themselves as a matching pair.
+
+## Colors
+
+Minimal palette — one accent color plus neutrals, no grid/dot-pattern backgrounds anywhere.
+
+- **Background:** warm off-white — `#FAF7F2` (not stark white — softer, less clinical)
+- **Text:** warm charcoal — `#2B2724` (not pure black — easier to read, less harsh)
+- **Accent (buttons, links, highlights):** muted/dusty blue — `#4A6FA5` — a deliberately deepened, muted echo of iMessage's bubble blue, so it visually rhymes with the screenshots without competing with them for attention (the vivid iOS blue inside the screenshots stays the most saturated color on the page).
+
+No navbar for now. No footer content yet (privacy policy etc. to be added later, not part of this build).
