@@ -13,6 +13,8 @@ export default function Hero() {
             alt=""
             fill
             priority
+            sizes="100vw"
+            quality={90}
             className="object-cover"
           />
         </div>
@@ -47,7 +49,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-end items-start h-full">
+          <div className="flex justify-center mt-8 lg:mt-0 lg:justify-end lg:items-start lg:h-full">
             <PhoneMockup />
           </div>
         </div>
