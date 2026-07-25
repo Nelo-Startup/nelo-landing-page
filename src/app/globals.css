@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf7f2;
+  --foreground: #2b2724;
+  --surface: #f1ece2;
+  --accent: #4a6fa5;
+  --accent-foreground: #faf7f2;
+  --ios-blue: #0b84fe;
+  --ios-gray: #e9e9eb;
+  --ios-gray-foreground: #1c1c1e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ios-blue: var(--ios-blue);
+  --color-ios-gray: var(--ios-gray);
+  --color-ios-gray-foreground: var(--ios-gray-foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
