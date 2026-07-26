@@ -49,11 +49,13 @@ const forThem = [
   "As easy as answering the phone or a text.",
   "Listens as much as it talks.",
   "Meds and appointments, actually done.",
-  "Speaks over 50 languages.",
+  "Talks in whatever language they're most comfortable in.",
+  "Follows up on whatever their caretaker asked to check on, not just what's scheduled.",
 ];
 
 const forYou = [
   "Alerts you the moment something feels off.",
+  "Picks up on trends before you can.",
   "Tell it what to check on next time, and it will.",
   "Runs on its own, no babysitting, barely any effort on your end.",
   "Can also join your family's group chat.",
