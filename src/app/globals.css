@@ -1,86 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdf8f0;
-  --foreground: #3a3128;
-  --surface: #faf0e2;
-  --accent: #4a6fa5;
-  --accent-foreground: #fdf8f0;
-  --ios-blue: #0b84fe;
-  --ios-gray: #e9e9eb;
-  --ios-gray-foreground: #1c1c1e;
+  --background: #0b0b0c;
+  --foreground: #fdf8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-ios-blue: var(--ios-blue);
-  --color-ios-gray: var(--ios-gray);
-  --color-ios-gray-foreground: var(--ios-gray-foreground);
-  --font-sans: var(--font-nunito);
-}
-
-/* Headings share the body family now, so they carry their own weight to stay
-   distinct from surrounding copy. */
-@utility font-display {
-  font-family: var(--font-nunito);
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-/* devices.css resets every descendant to display: block, which clobbers
-   Tailwind's flex utilities inside the phone mockup. Higher-specificity
-   override so our layout classes still work in there. */
-.device .flex {
-  display: flex;
-}
-
-/* Same reason: the typing caret has to stay inline with the draft text it
-   trails, or `display: block` drops it onto a line of its own. */
-.device .inline-block {
-  display: inline-block;
-}
-
-/* devices.css also defaults .device-screen to a black background, which
-   wins the cascade tie against Tailwind's bg-white at equal specificity. */
-.device .device-screen {
-  background-color: #fff;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hard on/off, not a fade — a text caret cuts rather than pulses. */
-@keyframes caretBlink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes kenburns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
 }

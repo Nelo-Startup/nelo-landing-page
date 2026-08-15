@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
-import "devices.css/dist/devices.min.css";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-// Nunito is the logo's typeface, so the whole page shares its rounded,
-// friendly shapes. Variable font, so every weight is one download.
-const nunito = Nunito({
-  variable: "--font-nunito",
+const fraunces = Fraunces({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+});
+
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Nelo, the contact that cares for your elders",
-  description:
-    "The AI contact that cares for your elders, and keeps you informed. A call or text, as natural as talking to a person.",
+  title: "Nelo",
+  description: "The contact who remembers your whole training life.",
 };
 
 export default function RootLayout({
@@ -22,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={nunito.variable}>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="min-h-full overflow-hidden font-sans antialiased">
         {children}
       </body>
     </html>

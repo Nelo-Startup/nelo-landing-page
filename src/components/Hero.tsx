@@ -1,58 +1,26 @@
-import Image from "next/image";
-import PhoneMockup from "./PhoneMockup";
-import WaitlistModal from "./WaitlistModal";
-import Logo from "./Logo";
+import VideoHero from "./VideoHero";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[520px] sm:min-h-[600px] lg:min-h-[680px] flex flex-col">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-porch.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            quality={90}
-            className="object-cover"
-          />
+    <section className="relative h-screen w-full overflow-hidden">
+      <VideoHero />
+
+      <div className="relative z-10 flex h-full w-full flex-col items-center px-6 text-center text-[#fdf8f0]">
+        <div className="pt-10">
+          <span className="text-lg tracking-wide">Nelo</span>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/25 to-transparent" />
-      </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pt-6 pb-10 flex-1 flex flex-col">
-        <Logo
-          variant="cream"
-          height={26}
-          priority
-          className="self-center lg:self-start drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
-        />
+        <div className="flex flex-1 flex-col items-center justify-center gap-10">
+          <h1 className="max-w-4xl font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">
+            The contact who remembers your <em className="italic">whole training life</em>.
+          </h1>
 
-        <div className="mt-6 sm:mt-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-6 flex-1">
-          <div className="max-w-xl mx-auto text-center lg:mx-0 lg:text-left">
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.35)]">
-              The AI contact that cares for your elders,
-              <span className="text-white/90"> and keeps you informed.</span>
-            </h1>
-
-            <p className="mt-4 text-base sm:text-lg text-white/90 leading-relaxed max-w-lg mx-auto lg:mx-0 drop-shadow-[0_1px_12px_rgba(0,0,0,0.3)]">
-              A call or text, as natural as talking to a person.
-              Nothing to download, nothing to learn, for either of you.
-            </p>
-
-            <div className="mt-4 flex flex-col items-center lg:items-start gap-2">
-              <WaitlistModal />
-              <span className="max-w-[190px] text-sm text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]">
-                Free for the first 50 users.
-              </span>
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-8 lg:mt-0 lg:justify-end lg:items-start lg:h-full">
-            <PhoneMockup />
-          </div>
+          <button className="rounded-full bg-[#fdf8f0] px-8 py-4 text-sm font-semibold tracking-wide text-[#1a1a1a] transition-transform hover:scale-105">
+            JOIN WAITLIST &nbsp;→
+          </button>
         </div>
+
+        <div className="pb-10" />
       </div>
     </section>
   );
