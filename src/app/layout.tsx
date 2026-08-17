@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Nelo",
-  description: "The contact who remembers your whole training life.",
+  description: "Your whole gym life, in one conversation.",
 };
 
 export default function RootLayout({

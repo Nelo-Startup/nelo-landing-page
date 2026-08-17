@@ -1,4 +1,5 @@
 import VideoHero from "./VideoHero";
+import WaitlistCTA from "./WaitlistCTA";
 
 export default function Hero() {
   return (
@@ -12,12 +13,10 @@ export default function Hero() {
 
         <div className="flex flex-1 flex-col items-center justify-center gap-10">
           <h1 className="max-w-4xl font-serif text-4xl leading-tight sm:text-5xl md:text-6xl">
-            The contact who remembers your <em className="italic">whole training life</em>.
+            Your whole gym life, in one conversation.
           </h1>
 
-          <button className="rounded-full bg-[#fdf8f0] px-8 py-4 text-sm font-semibold tracking-wide text-[#1a1a1a] transition-transform hover:scale-105">
-            JOIN WAITLIST &nbsp;→
-          </button>
+          <WaitlistCTA />
         </div>
 
         <div className="pb-10" />
